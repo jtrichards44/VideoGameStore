@@ -1,0 +1,73 @@
+﻿@using WebApplication2.ViewModels
+@model IndexViewModel
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand">Nerd World</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="index.html" class="active">Interests</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!--LOGO-->
+<div class="container">
+    <div class="row">
+        <img src="~/Content/img/NW.png" width="756" height="496" class="img-responsive col-md-offset-4 col-md-4" />
+    </div>
+</div>
+
+<!--Buttons-->
+<div style="background-color: white;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-1 col-md-10">
+                <button type="button" class="btn btn-success btn-lg btn-block" data-toggle="modal" data-target="#myModal">New</button>
+                <button type="button" class="btn btn-info btn-lg btn-block"> Find </button>
+                <button type="button" class="btn btn-warning btn-lg btn-block"> Rent Out </button>
+                <button type="button" class="btn btn-primary btn-lg btn-block"> Brought Back </button>
+                <button type="button" class="btn btn-danger btn-lg btn-block"> Sold/Broke </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Html.Partial("_PartialAddNewVideoGame", Model.NewVideoGameViewModel)
+@Html.Partial("_PartialFindInDirectory", Model.NewVideoGameViewModel)
+@Html.Partial("_PartialRentedAndBroughtBack", Model.NewVideoGameViewModel)
+@Html.Partial("_PartialRentedAndBroughtBack", Model.NewVideoGameViewModel)
+@Html.Partial("_PartialDeleteVideoGame", Model.NewVideoGameViewModel)
+
+<!--Table-->
+<table class="table">
+    <!--Headers-->
+    <tr>
+        <th>UPC</th>
+        <th>Released Date</th>
+        <th>Title</th>
+        <th>Platform</th>
+        <th>Rating</th>
+        <th>Rented</th>
+    </tr>
+
+    <!--Properties-->
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>

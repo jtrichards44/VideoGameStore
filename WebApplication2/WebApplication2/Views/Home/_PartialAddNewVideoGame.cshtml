@@ -1,0 +1,32 @@
+﻿@using WebApplication2.ViewModels
+@model NewVideoGameViewModel
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">New Video Game</h4>
+            </div>
+            <div class="modal-body">
+                <span>Video Game Name: </span>
+                @Html.TextBoxFor(model=>model.VideoGameName)
+                <span>Release Date: </span>
+                <input type="date" />
+                <span>Description: </span>
+                @Html.TextBoxFor(m => m.Description)
+                <span>Rented: </span>
+                @Html.CheckBoxFor(m => m.Rented)
+                <span>UPC: </span>
+                @Html.TextBoxFor(m => m.UPC)
+                <span>Platform: </span>
+                @Html.EnumDropDownListFor(x => x.SelectedPlatformId)
+                <span>Rating: </span>
+                @Html.EnumDropDownListFor(x => x.SelectedRatingId)
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

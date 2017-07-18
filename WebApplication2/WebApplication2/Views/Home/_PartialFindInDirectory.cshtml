@@ -1,0 +1,41 @@
+﻿@using WebApplication2.ViewModels
+@model NewVideoGameViewModel
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Find Game</h4>
+
+                <div id="search-form">
+                    @Html.Action("Search", "Home");
+                </div>
+
+                    <table class="table" id="search-results">
+                        <tr>
+                            <th>UPC</th>
+                            <th>Released Date</th>
+                            <th>Title</th>
+                            <th>Platform</th>
+                            <th>Rating</th>
+                            <th>Rented</th>
+                        </tr>
+                        <tr>
+                            @Html.DisplayFor(m => m.UPC)
+                            @Html.DisplayFor(m => m.ReleasedDate)
+                            @Html.DisplayFor(m => m.VideoGameName)
+                            @Html.DisplayFor(m => m.SelectedPlatformId)
+                            @Html.DisplayFor(m => m.SelectedRatingId)
+                            @Html.DisplayFor(m => m.Rented)
+                        </tr>
+                    </table>
+
+                </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
