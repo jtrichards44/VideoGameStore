@@ -201,3 +201,5 @@ C:\Users\Tyler\Documents\Git\VideoGameStore\WebApplication2\WebApplication2\obj\
 C:\Users\Tyler\Documents\Git\VideoGameStore\WebApplication2\WebApplication2\obj\Debug\WebApplication2.pdb
 C:\Users\Tyler\Documents\Git\VideoGameStore\WebApplication2\WebApplication2\bin\Services.dll
 C:\Users\Tyler\Documents\Git\VideoGameStore\WebApplication2\WebApplication2\bin\Services.pdb
+C:\Users\UltimateXPS\Source\Repos\VideoGameStore\WebApplication2\WebApplication2\obj\Debug\WebApplication2.dll
+C:\Users\UltimateXPS\Source\Repos\VideoGameStore\WebApplication2\WebApplication2\obj\Debug\WebApplication2.pdb

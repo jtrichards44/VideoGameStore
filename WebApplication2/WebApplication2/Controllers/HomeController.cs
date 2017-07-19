@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
+using WebApplcation2.Models;
 using WebApplication2.ViewModels;
-using Final.Models;
-using System.Linq;
 
 namespace WebApplication2.Controllers
 {

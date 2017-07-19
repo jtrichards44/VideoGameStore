@@ -1,43 +1,84 @@
 ﻿@using WebApplication2.ViewModels
-@model NewVideoGameViewModel
+@*@model NewVideoGameViewModel*@
 
-<div class="modal fade" id="myModal" role="dialog">
+<script src="~/Scripts/knockout-3.4.2.js"></script>
+
+
+<div class="modal fade" id="findVideoGame" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Find Game</h4>
+                <h4 class="modal-title">Rent Out/Brought Back</h4>
+                <h6>Click to select</h6>
 
-                <div id="search-form">
-                    @Html.Action("Search", "Home");
-                </div>
+                <input type="text" placeholder="Game Name" id="searchGameNameInput" data-bind="value: searchTerm" />
+                <button class="btn-success" data-bind="click: searchForGame">Search</button>
 
-                <table class="table" id="search-results">
-                    <tr>
-                        <th>UPC</th>
-                        <th>Released Date</th>
-                        <th>Title</th>
-                        <th>Platform</th>
-                        <th>Rating</th>
-                        <th>Rented</th>
-                    </tr>
-                    <tr>
-                        @Html.DisplayFor(m => m.UPC)
-                        @Html.DisplayFor(m => m.ReleasedDate)
-                        @Html.DisplayFor(m => m.VideoGameName)
-                        @Html.DisplayFor(m => m.SelectedPlatformId)
-                        @Html.DisplayFor(m => m.SelectedRatingId)
-                        @Html.DisplayFor(m => m.Rented)
-                        @Html.CheckBoxFor(m => m.Rented)
-                    </tr>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>UPC</th>
+                            <th>Released Date</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Platform</th>
+                            <th>Rating</th>
+                            <th>Rented</th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: games">
+                        <tr onclick="Change()">
+                            <td data-bind="text: UPC"></td>
+                            <td data-bind="text: ReleasedDate"></td>
+                            <td data-bind="text: Name"></td>
+                            <td data-bind="text: Description"></td>
+                            <td data-bind="text: PlatformId"></td>
+                            <td data-bind="text: RatingId"></td>
+                            <td data-bind="text: Rented"></td>
+                        </tr>
+                    </tbody>
                 </table>
 
             </div>
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    var FindVideoGameViewModel = function () {
+        var self = this;
+        self.games = ko.observableArray([]);
+        self.searchTerm = ko.observable();
+
+        self.searchForGame = function () {
+
+            self.games.removeAll();
+
+            $.ajax({
+                url: "VideoGame/Search",
+                type: "get",
+                data: { "searchString": self.searchTerm() },
+                success: function (returnedData) {
+                    for (var i = 0; i < returnedData.length; i++) {
+                        self.games.push(returnedData[i]);
+                    }
+                }
+            });
+        };
+    };
+
+    function Change() {
+        if ($.Rented = false){
+            $.Change = true;
+        } 
+    }
+
+    ko.applyBindings(new FindVideoGameViewModel());
+</script>
 
 
