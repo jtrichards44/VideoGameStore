@@ -33,21 +33,21 @@
     <div class="container">
         <div class="row">
             <div class="col-md-offset-1 col-md-10">
-                <button type="button" class="btn btn-success btn-lg btn-block" data-toggle="modal" data-target="#myModal">New</button>
-                <button type="button" class="btn btn-info btn-lg btn-block"> Find </button>
-                <button type="button" class="btn btn-warning btn-lg btn-block"> Rent Out </button>
-                <button type="button" class="btn btn-primary btn-lg btn-block"> Brought Back </button>
-                <button type="button" class="btn btn-danger btn-lg btn-block"> Sold/Broke </button>
+                <button type="button" class="btn btn-success btn-lg btn-block" data-toggle="modal" data-target="#addVideoGame">New</button>
+                <button type="button" class="btn btn-info btn-lg btn-block" data-toggle="modal" data-target="#findVideoGame"> Find </button>
+                <button type="button" class="btn btn-warning btn-lg btn-block" data-toggle="modal" data-target="#myModal"> Rent Out </button>
+                <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#myModal"> Brought Back </button>
+                <button type="button" class="btn btn-danger btn-lg btn-block" data-toggle="modal" data-target="#myModal"> Sold/Broke </button>
             </div>
         </div>
     </div>
 </div>
 
 @Html.Partial("_PartialAddNewVideoGame", Model.NewVideoGameViewModel)
-@Html.Partial("_PartialFindInDirectory", Model.NewVideoGameViewModel)
+@Html.Partial("_PartialFindInDirectory")
+@*@Html.Partial("_PartialRentedAndBroughtBack", Model.NewVideoGameViewModel)
 @Html.Partial("_PartialRentedAndBroughtBack", Model.NewVideoGameViewModel)
-@Html.Partial("_PartialRentedAndBroughtBack", Model.NewVideoGameViewModel)
-@Html.Partial("_PartialDeleteVideoGame", Model.NewVideoGameViewModel)
+@Html.Partial("_PartialDeleteVideoGame", Model.NewVideoGameViewModel)*@
 
 <!--Table-->
 <table class="table">

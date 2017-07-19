@@ -1,7 +1,8 @@
 ﻿@using WebApplication2.ViewModels
+@using Final.Models
 @model NewVideoGameViewModel
 
-<div class="modal fade" id="myModal" role="dialog">
+<div class="modal fade" id="addVideoGame" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -12,7 +13,7 @@
                 <span>Video Game Name: </span>
                 @Html.TextBoxFor(model=>model.VideoGameName)
                 <span>Release Date: </span>
-                <input type="date" />
+                <input type="date" value="@Model.ReleasedDate"/>
                 <span>Description: </span>
                 @Html.TextBoxFor(m => m.Description)
                 <span>Rented: </span>
@@ -20,9 +21,9 @@
                 <span>UPC: </span>
                 @Html.TextBoxFor(m => m.UPC)
                 <span>Platform: </span>
-                @Html.EnumDropDownListFor(x => x.SelectedPlatformId)
+                @Html.DropDownListFor(x=> x.SelectedPlatform, Model.PlatformOptions)
                 <span>Rating: </span>
-                @Html.EnumDropDownListFor(x => x.SelectedRatingId)
+                @Html.DropDownListFor(x => x.SelectedRating, Model.RatingOptions)
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
