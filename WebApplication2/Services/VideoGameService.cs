@@ -1,6 +1,8 @@
-﻿using Final.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using System;
+using Models;
+using Repositories;
 
 namespace Services
 {
@@ -10,37 +12,40 @@ namespace Services
         {
             if(string.IsNullOrEmpty(name))
             {
-                return GetAll();
+                return GetAll().ToList();
             }
 
-            return GetAll().Where(x => x.Name.ToLower().Contains(name.ToLower()));//if the game name (lowercased) contains the search string (lowercased), then return that game
+            return GetAll().Where(x => x.Name.ToLower().Contains(name.ToLower())).ToList();//if the game name (lowercased) contains the search string (lowercased), then return that game
+        }
+
+        public static void AddNewGameOrUpdate(VideoGame videoGame)
+        {
+            VideoGamesRepository.AddOrUpdate(videoGame);
+        }
+
+        public static void SaveRentalBroughtBacks(IList<VideoGame> games)
+        {
+            foreach(var game in games)
+            {
+                var gameFromRepo = GetAll().FirstOrDefault(x=>x.Id == game.Id);
+                gameFromRepo.Rented = game.Rented;
+                VideoGamesRepository.AddOrUpdate(gameFromRepo);
+            }
+        }
+
+        public static void DeleteVideoGames(IList<int> ids)
+        {
+            foreach(var id in ids)
+            {
+                var gameToDelete = GetAll().FirstOrDefault(x => x.Id == id);
+                VideoGamesRepository.Delete(gameToDelete);
+            }
         }
 
         private static IEnumerable<VideoGame> GetAll()
         {
-            var vg = new VideoGame
-            {
-                Description = "test game 1",
-                ReleasedDate = System.DateTime.Now,
-                Rented = false,
-                UPC = "sterserfdasr",
-                Name = "God of War",
-                RatingId = 1,
-                PlatformId = 1
-            };
-
-            var vg2 = new VideoGame
-            {
-                Description = "test game 2",
-                ReleasedDate = System.DateTime.Now,
-                Rented = true,
-                UPC = "sterserfdasdfasdfsr",
-                Name = "God of War 2",
-                RatingId = 2,
-                PlatformId = 2
-            };
-
-            return new List<VideoGame> { vg, vg2 };
+            return VideoGamesRepository.GetAll();
         }
+
     }
 }

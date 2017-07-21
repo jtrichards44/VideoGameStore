@@ -11,8 +11,8 @@ namespace WebApplication2.ViewModels
         public bool Rented { get; set; }
         public string UPC { get; set; }
 
-        public SelectListItem SelectedPlatform { get; set; }
-        public SelectListItem SelectedRating { get; set; }
+        public int SelectedPlatformId { get; set; }
+        public int SelectedRatingId { get; set; }
 
         public SelectList PlatformOptions { get; set; }
         public SelectList RatingOptions { get; set; }

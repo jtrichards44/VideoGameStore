@@ -1,0 +1,5 @@
+C:\Users\Tyler\Documents\Git\VideoGameStore\WebApplication2\VideoGameStore\bin\Debug\VideoGameStore.dacpac
+C:\Users\Tyler\Documents\Git\VideoGameStore\WebApplication2\VideoGameStore\obj\Debug\VideoGameStore.dll
+C:\Users\Tyler\Documents\Git\VideoGameStore\WebApplication2\VideoGameStore\obj\Debug\VideoGameStore.pdb
+C:\Users\Tyler\Documents\Git\VideoGameStore\WebApplication2\VideoGameStore\bin\Debug\VideoGameStore.dll
+C:\Users\Tyler\Documents\Git\VideoGameStore\WebApplication2\VideoGameStore\bin\Debug\VideoGameStore.pdb

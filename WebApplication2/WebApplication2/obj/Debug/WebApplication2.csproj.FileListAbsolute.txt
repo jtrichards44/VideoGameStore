@@ -203,3 +203,10 @@ C:\Users\Tyler\Documents\Git\VideoGameStore\WebApplication2\WebApplication2\bin\
 C:\Users\Tyler\Documents\Git\VideoGameStore\WebApplication2\WebApplication2\bin\Services.pdb
 C:\Users\UltimateXPS\Source\Repos\VideoGameStore\WebApplication2\WebApplication2\obj\Debug\WebApplication2.dll
 C:\Users\UltimateXPS\Source\Repos\VideoGameStore\WebApplication2\WebApplication2\obj\Debug\WebApplication2.pdb
+C:\Users\Tyler\Documents\Git\VideoGameStore\WebApplication2\WebApplication2\bin\Models.dll
+C:\Users\Tyler\Documents\Git\VideoGameStore\WebApplication2\WebApplication2\bin\EntityFramework.dll
+C:\Users\Tyler\Documents\Git\VideoGameStore\WebApplication2\WebApplication2\bin\Repositories.dll
+C:\Users\Tyler\Documents\Git\VideoGameStore\WebApplication2\WebApplication2\bin\Models.pdb
+C:\Users\Tyler\Documents\Git\VideoGameStore\WebApplication2\WebApplication2\bin\Models.dll.config
+C:\Users\Tyler\Documents\Git\VideoGameStore\WebApplication2\WebApplication2\bin\EntityFramework.xml
+C:\Users\Tyler\Documents\Git\VideoGameStore\WebApplication2\WebApplication2\bin\Repositories.pdb

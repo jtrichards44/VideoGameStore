@@ -12,7 +12,7 @@
                 <h4 class="modal-title">Find Game</h4>
 
                 <input type="text" placeholder="Game Name" id="searchGameNameInput" data-bind="value: searchTerm" />
-                <button class="btn-success" data-bind="click: searchForGame">Search</button>
+                <button type="button" class="btn btn-info" data-bind="click: searchForGame">Search</button>
 
                     <table class="table">
                         <thead>
@@ -32,15 +32,13 @@
                                 <td data-bind="text: ReleasedDate"></td>
                                 <td data-bind="text: Name"></td>
                                 <td data-bind="text: Description"></td>
-                                <td data-bind="text: PlatformId"></td>
-                                <td data-bind="text: RatingId"></td>
+                                <td data-bind="text: PlatformName"></td>
+                                <td data-bind="text: RatingName"></td>
                                 <td data-bind="text: Rented"></td>
                             </tr>
                         </tbody>
                     </table>
-
             </div>
-
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
@@ -55,11 +53,10 @@
         self.searchTerm = ko.observable();
 
         self.searchForGame = function () {
-
             self.games.removeAll();
 
             $.ajax({
-                url: "VideoGame/Search",
+                url: "/VideoGame/Search",
                 type: "get",
                 data: { "searchString": self.searchTerm() },
                 success: function (returnedData) {

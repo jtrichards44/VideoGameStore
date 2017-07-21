@@ -1,0 +1,10 @@
+C:\Users\Tyler\Documents\Git\VideoGameStore\WebApplication2\Models\bin\Debug\Models.dll.config
+C:\Users\Tyler\Documents\Git\VideoGameStore\WebApplication2\Models\bin\Debug\Models.dll
+C:\Users\Tyler\Documents\Git\VideoGameStore\WebApplication2\Models\bin\Debug\Models.pdb
+C:\Users\Tyler\Documents\Git\VideoGameStore\WebApplication2\Models\bin\Debug\EntityFramework.dll
+C:\Users\Tyler\Documents\Git\VideoGameStore\WebApplication2\Models\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Tyler\Documents\Git\VideoGameStore\WebApplication2\Models\bin\Debug\EntityFramework.xml
+C:\Users\Tyler\Documents\Git\VideoGameStore\WebApplication2\Models\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Tyler\Documents\Git\VideoGameStore\WebApplication2\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
+C:\Users\Tyler\Documents\Git\VideoGameStore\WebApplication2\Models\obj\Debug\Models.dll
+C:\Users\Tyler\Documents\Git\VideoGameStore\WebApplication2\Models\obj\Debug\Models.pdb

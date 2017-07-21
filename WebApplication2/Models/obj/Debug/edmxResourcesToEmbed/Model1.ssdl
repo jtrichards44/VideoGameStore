@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VideoGameStoreModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Platforms">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ratings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VideoGames">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ReleasedDate" Type="date" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="500" />
+    <Property Name="Rented" Type="bit" Nullable="false" />
+    <Property Name="UPC" Type="nvarchar" MaxLength="8" Nullable="false" />
+    <Property Name="PlatformId" Type="int" Nullable="false" />
+    <Property Name="RatingId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__VideoGame__Platf__276EDEB3">
+    <End Role="Platforms" Type="Self.Platforms" Multiplicity="1" />
+    <End Role="VideoGames" Type="Self.VideoGames" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Platforms">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="VideoGames">
+        <PropertyRef Name="PlatformId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__VideoGame__Ratin__286302EC">
+    <End Role="Ratings" Type="Self.Ratings" Multiplicity="1" />
+    <End Role="VideoGames" Type="Self.VideoGames" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ratings">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="VideoGames">
+        <PropertyRef Name="RatingId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="VideoGameStoreModelStoreContainer">
+    <EntitySet Name="Platforms" EntityType="Self.Platforms" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ratings" EntityType="Self.Ratings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VideoGames" EntityType="Self.VideoGames" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__VideoGame__Platf__276EDEB3" Association="Self.FK__VideoGame__Platf__276EDEB3">
+      <End Role="Platforms" EntitySet="Platforms" />
+      <End Role="VideoGames" EntitySet="VideoGames" />
+    </AssociationSet>
+    <AssociationSet Name="FK__VideoGame__Ratin__286302EC" Association="Self.FK__VideoGame__Ratin__286302EC">
+      <End Role="Ratings" EntitySet="Ratings" />
+      <End Role="VideoGames" EntitySet="VideoGames" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

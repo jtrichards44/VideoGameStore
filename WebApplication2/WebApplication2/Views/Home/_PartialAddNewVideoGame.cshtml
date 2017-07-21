@@ -1,33 +1,36 @@
 ﻿@using WebApplication2.ViewModels
-@using Final.Models
 @model NewVideoGameViewModel
 
-<div class="modal fade" id="addVideoGame" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">New Video Game</h4>
-            </div>
-            <div class="modal-body">
-                <span>Video Game Name: </span>
-                @Html.TextBoxFor(model=>model.VideoGameName)
-                <span>Release Date: </span>
-                <input type="date" value="@Model.ReleasedDate"/>
-                <span>Description: </span>
-                @Html.TextBoxFor(m => m.Description)
-                <span>Rented: </span>
-                @Html.CheckBoxFor(m => m.Rented)
-                <span>UPC: </span>
-                @Html.TextBoxFor(m => m.UPC)
-                <span>Platform: </span>
-                @Html.DropDownListFor(x=> x.SelectedPlatform, Model.PlatformOptions)
-                <span>Rating: </span>
-                @Html.DropDownListFor(x => x.SelectedRating, Model.RatingOptions)
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+@using (Html.BeginForm("AddOrUpdate", "VideoGame", FormMethod.Post))
+{
+    <div class="modal fade" id="addVideoGame" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">New Video Game</h4>
+                </div>
+                <div class="modal-body">
+                    <span>Video Game Name: </span>
+                    @Html.TextBoxFor(model => model.VideoGameName)
+                    <span>Release Date: </span>
+                    @Html.TextBoxFor(m => m.ReleasedDate)
+                    <span>Description: </span>
+                    @Html.TextBoxFor(m => m.Description)
+                    <span>Rented: </span>
+                    @Html.CheckBoxFor(m => m.Rented)
+                    <span>UPC: </span>
+                    @Html.TextBoxFor(m => m.UPC)
+                    <span>Platform: </span>
+                    @Html.DropDownListFor(x => x.SelectedPlatformId, Model.PlatformOptions)
+                    <span>Rating: </span>
+                    @Html.DropDownListFor(x => x.SelectedRatingId, Model.RatingOptions)
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">Save</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
+}

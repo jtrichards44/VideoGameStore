@@ -1,10 +1,6 @@
-﻿@using WebApplication2.ViewModels
-@*@model NewVideoGameViewModel*@
+﻿@*<script src="~/Scripts/knockout-3.4.2.js"></script>
 
-<script src="~/Scripts/knockout-3.4.2.js"></script>
-
-
-<div class="modal fade" id="findVideoGame" role="dialog">
+<div class="modal fade" id="rentedBroughtBack" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -13,7 +9,7 @@
                 <h6>Click to select</h6>
 
                 <input type="text" placeholder="Game Name" id="searchGameNameInput" data-bind="value: searchTerm" />
-                <button class="btn-success" data-bind="click: searchForGame">Search</button>
+                <button type="button" class="btn btn-info" data-bind="click: searchForGame">Search</button>
 
                 <table class="table">
                     <thead>
@@ -28,14 +24,16 @@
                         </tr>
                     </thead>
                     <tbody data-bind="foreach: games">
-                        <tr onclick="Change()">
+                        <tr>
                             <td data-bind="text: UPC"></td>
                             <td data-bind="text: ReleasedDate"></td>
                             <td data-bind="text: Name"></td>
                             <td data-bind="text: Description"></td>
-                            <td data-bind="text: PlatformId"></td>
-                            <td data-bind="text: RatingId"></td>
-                            <td data-bind="text: Rented"></td>
+                            <td data-bind="text: PlatformName"></td>
+                            <td data-bind="text: RatingName"></td>
+                            <td>
+                                <input type="checkbox" data-bind="checked: Rented" />
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -43,6 +41,7 @@
             </div>
 
             <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bind="click: commitChangedStatus">Save</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
@@ -50,17 +49,16 @@
 </div>
 
 <script type="text/javascript">
-    var FindVideoGameViewModel = function () {
+    var RentedAndBroughtBackViewModel = function () {
         var self = this;
         self.games = ko.observableArray([]);
         self.searchTerm = ko.observable();
 
         self.searchForGame = function () {
-
             self.games.removeAll();
 
             $.ajax({
-                url: "VideoGame/Search",
+                url: "/VideoGame/Search",
                 type: "get",
                 data: { "searchString": self.searchTerm() },
                 success: function (returnedData) {
@@ -70,15 +68,18 @@
                 }
             });
         };
+
+        self.commitChangedStatus = function () {
+            $.ajax({
+                url: "/VideoGame/ChangeStatusOfRentals",
+                type: "post",
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify(self.games())
+            });
+        };
     };
 
-    function Change() {
-        if ($.Rented = false){
-            $.Change = true;
-        } 
-    }
-
-    ko.applyBindings(new FindVideoGameViewModel());
-</script>
+    ko.applyBindings(new RentedAndBroughtBackViewModel());
+</script>*@
 
 
