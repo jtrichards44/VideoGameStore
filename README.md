@@ -6,4 +6,6 @@ Going into my project the main screen has a simple 3 button functionality (was 4
 
 This project was a lot of work and research for me to get it working. I had so much fun and will continue to have fun with this project for many to come and excited to make more and more changes to make it better more understandable and maybe the perfect teaching tool for me and future colleagues.
 
+P.S. dont forget to publish the database, in VideoGameStore,
+
 Thank You again for everything teamtreehouse.com and CodeLouisville I wouln't be this far without you guys!
